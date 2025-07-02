@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lili Imóveis - Eliane Cordeiro de Sá | CRECI 1671</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* ------------------- */
+        /* ZERANDO E CONFIGURANDO A BASE */
+        /* ------------------- */
+        :root {
+            /* Paleta de Cores */
+            --verde-escuro: #2E4636;
+            --grafite: #34495E;
+            --dourado-suave: #C1A35F;
+            --verde-acao: #4A775E;
+            --branco-gelo: #FDFEFE;
+            --fundo-suave: #f7f9f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fundo-suave);
+            color: var(--grafite);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px; /* Ajustado para alinhar com o header */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+        }
+        
+        /* ------------------- */
+        /* CABEÇALHO ATUALIZADO */
+        /* ------------------- */
+        .top-bar {
+            background-color: var(--verde-escuro);
+            color: var(--branco-gelo);
+            padding: 0.5rem 0;
+            font-size: 0.8rem;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar a {
+            color: var(--branco-gelo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .top-bar a:hover {
+            color: var(--dourado-suave);
+        }
+
+        .contact-info-top {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info-top i, .top-bar-creci i {
+            margin-right: 5px;
+            color: var(--dourado-suave);
+        }
+
+        .main-header {
+            background-color: var(--branco-gelo);
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: var(--verde-escuro);
+        }
+
+        .logo span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            color: var(--dourado-suave);
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+        }
+        
+        .main-nav a {
+            text-decoration: none;
+            color: var(--grafite);
+            font-weight: 600;
+            margin-left: 25px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--verde-escuro);
+            border-bottom-color: var(--dourado-suave);
+        }
+
+        /* ------------------- */
+        /* SEÇÃO DE APRESENTAÇÃO (HERO) */
+        /* ------------------- */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--branco-gelo);
+        }
+
+        .hero h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--grafite);
+        }
+        
+        .hero .creci {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--dourado-suave);
+        }
+        
+        /* ------------------- */
+        /* VITRINE DE IMÓVEIS */
+        /* ------------------- */
+        .property-listings {
+            padding: 3rem 0;
+        }
+        
+        .property-listings .container {
+             padding: 0 20px;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background-color: var(--branco-gelo);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .property-card-image-container {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            background-color: #eee;
+        }
+        
+        .property-card-image-container .property-type {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: rgba(193, 163, 95, 0.85); 
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .property-card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .property-location {
+            color: var(--grafite);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .property-location i {
+            color: var(--dourado-suave);
+        }
+
+        .property-features {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+            text-align: center;
+            gap: 1rem;
+        }
+        
+        .feature span {
+            display: block;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .property-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--grafite);
+        }
+
+        .contact-button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--verde-acao);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+        }
+
+        .contact-button:hover {
+            background-color: var(--verde-escuro);
+        }
+        
+        /* ------------------- */
+        /* RODAPÉ */
+        /* ------------------- */
+        .footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco-gelo);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer h3 {
+            color: var(--branco-gelo);
+        }
+        .footer p {
+            margin-bottom: 1rem;
+        }
+        .footer a {
+            color: var(--branco-gelo);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <span class="top-bar-creci"><i class="fas fa-id-card"></i> CRECI 1671 AM</span>
+                <div class="contact-info-top">
+                    <a href="https://wa.me/5592981381059" target="_blank">
+                        <i class="fab fa-whatsapp"></i> (92) 98138-1059
+                    </a>
+                    <a href="mailto:eliane_de_sa@yahoo.com.br">
+                        <i class="fas fa-envelope"></i> eliane_de_sa@yahoo.com.br
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h1>Lili Imóveis</h1>
+                    <span>por Eliane Cordeiro de Sá</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="#">Início</a>
+                    <a href="#">Imóveis</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>O lar dos seus sonhos, com a confiança que você merece.</h2>
+                <p>
+                    Com mais de 30 anos de experiência no mercado imobiliário de Manaus, ofereço um atendimento personalizado para encontrar o imóvel perfeito para você e sua família.
+                </p>
+                <p class="creci">Corretora Autônoma | CRECI 1671 AM</p>
+            </div>
+        </section>
+
+        <section class="property-listings">
+            <div class="container">
+                <h2>Imóveis em Destaque</h2>
+                
+                <!-- A Vitrine de Imóveis será inserida aqui pelo JavaScript -->
+                <div id="property-grid" class="property-grid"></div>
+
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <h3>Eliane "Lili" Cordeiro de Sá</h3>
+            <p>Sua corretora de confiança em Manaus.</p>
+            <p>
+                <a href="https://wa.me/5592981381059" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Fale comigo pelo WhatsApp
+                </a>
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.8rem;">
+                © 2025 Lili Imóveis | CRECI 1671 AM
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- INÍCIO DA BASE DE DADOS "FAKE" ---
+        const imoveis = [
+            {
+                id: 1,
+                titulo: 'Apartamento de Luxo no Adrianópolis',
+                bairro: 'Adrianópolis, Manaus',
+                imagem: 'https://placehold.co/600x400/2E4636/FFFFFF?text=Apartamento',
+                quartos: 3,
+                area: 150,
+                vagas: 2,
+                preco: 980000,
+                tipo: 'Venda'
+            },
+            {
+                id: 2,
+                titulo: 'Casa com Piscina na Ponta Negra',
+                bairro: 'Ponta Negra, Manaus',
+                imagem: 'https://placehold.co/600x400/4A775E/FFFFFF?text=Casa+com+Piscina',
+                quartos: 4,
+                area: 320,
+                vagas: 4,
+                preco: 1850000,
+                tipo: 'Venda'
+            },
+            {
+                id: 3,
+                titulo: 'Apartamento Aconchegante no Vieiralves',
+                bairro: 'Vieiralves, Manaus',
+                imagem: 'https://placehold.co/600x400/C1A35F/FFFFFF?text=Apartamento+Moderno',
+                quartos: 2,
+                area: 75,
+                vagas: 1,
+                preco: 3500,
+                tipo: 'Aluguel'
+            },
+            {
+                id: 4,
+                titulo: 'Casa Térrea no Parque 10',
+                bairro: 'Parque 10 de Novembro, Manaus',
+                imagem: 'https://placehold.co/600x400/34495E/FFFFFF?text=Casa+Térrea',
+                quartos: 3,
+                area: 180,
+                vagas: 3,
+                preco: 650000,
+                tipo: 'Venda'
+            }
+        ];
+        // --- FIM DA BASE DE DADOS "FAKE" ---
+
+
+        // Função para renderizar os imóveis na tela
+        function renderizarImoveis() {
+            const gridContainer = document.getElementById('property-grid');
+            gridContainer.innerHTML = '';
+
+            imoveis.forEach(imovel => {
+                const precoFormatado = imovel.tipo === 'Venda'
+                    ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(imovel.preco)
+                    : `${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(imovel.preco)}/mês`;
+
+                const cardHTML = `
+                    <div class="property-card">
+                        <div class="property-card-image-container">
+                            <img src="${imovel.imagem}" alt="${imovel.titulo}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                            <span class="property-type">${imovel.tipo}</span>
+                        </div>
+                        <div class="property-card-content">
+                            <h3>${imovel.titulo}</h3>
+                            <p class="property-location">
+                                <i class="fas fa-map-marker-alt"></i> ${imovel.bairro}
+                            </p>
+                            <div class="property-features">
+                                <div class="feature">
+                                    <i class="fas fa-bed"></i>
+                                    <strong>${imovel.quartos}</strong>
+                                    <span>Quartos</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    <strong>${imovel.area} m²</strong>
+                                    <span>Área</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-car"></i>
+                                    <strong>${imovel.vagas}</strong>
+                                    <span>Vagas</span>
+                                </div>
+                            </div>
+                            <div class="property-price">${precoFormatado}</div>
+                            <a href="https://wa.me/5592981381059?text=Olá! Tenho interesse no imóvel: ${encodeURIComponent(imovel.titulo)}" target="_blank" class="contact-button">
+                                <i class="fab fa-whatsapp"></i> Tenho Interesse
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                gridContainer.innerHTML += cardHTML;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderizarImoveis);
+    </script>
+</body>
+</html>
